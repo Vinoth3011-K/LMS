@@ -1,0 +1,23 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/venv/
+backend/__pycache__/
+backend/*.sqlite3
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+
+# React
+node_modules/
+dist/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
