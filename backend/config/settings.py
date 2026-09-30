@@ -66,7 +66,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL")
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600
     )
 }
 
@@ -94,10 +95,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://lms-platfo.netlify.app",
 ]
+
 frontend_url = os.getenv("FRONTEND_URL")
 if frontend_url:
     CORS_ALLOWED_ORIGINS.append(frontend_url.rstrip('/'))
+
+CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
